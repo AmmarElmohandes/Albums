@@ -1,0 +1,174 @@
+<div class="user">
+  <button
+    type="button"
+    class="btn btn-secondary"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Add User
+  </button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+
+        <td>
+          {{ user.address.street }},{{ user.address.suite }},{{
+            user.address.city
+          }}
+        </td>
+        <button class="btn btn-secondary text-dark" (click)="showUser(user.id)">
+          User Info
+        </button>
+      </tr>
+    </tbody>
+  </table>
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="userForm" (ngSubmit)="submit()">
+            <label for="name">name</label>
+
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="Name"
+              required
+            />
+
+            <div
+              *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="name?.errors?.required">Name is required.</div>
+            </div>
+            <label for="name">Email</label>
+
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              formControlName="Email"
+              required
+            />
+
+            <div
+              *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="email?.errors?.required">Email is required.</div>
+              <div *ngIf="email?.errors?.email">Email is wrong format.</div>
+            </div>
+            <label for="phone">Phone</label>
+
+            <input
+              type="number"
+              id="phone"
+              class="form-control"
+              formControlName="Phone"
+              required
+            />
+
+            <div
+              *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="phone?.errors?.required">Phone is required.</div>
+            </div>
+            <div formGroupName="Address">
+              <label for="name">City</label>
+
+              <input
+                type="text"
+                id="street"
+                class="form-control"
+                formControlName="City"
+                required
+              />
+
+              <div
+                *ngIf="city?.invalid && (city?.dirty || city?.touched)"
+                class="alert alert-danger"
+              >
+                <div *ngIf="city?.errors?.required">City is required.</div>
+              </div>
+              <label for="name">Street</label>
+
+              <input
+                type="text"
+                id="street"
+                class="form-control"
+                formControlName="Street"
+                required
+              />
+
+              <div
+                *ngIf="street?.invalid && (street?.dirty || street?.touched)"
+                class="alert alert-danger"
+              >
+                <div *ngIf="street?.errors?.required">Street is required.</div>
+              </div>
+              <label for="name">Suite</label>
+
+              <input
+                type="text"
+                id="suite"
+                class="form-control"
+                formControlName="Suite"
+                required
+              />
+
+              <div
+                *ngIf="suite?.invalid && (suite?.dirty || suite?.touched)"
+                class="alert alert-danger"
+              >
+                <div *ngIf="suite?.errors?.required">Suite is required.</div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
