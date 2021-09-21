@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+.navbar-brand{
+    color: red;
+    font-family: 'Indie Flower', cursive;
+    font-size: 28px;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+.name{
+    font-family: 'Carattere', cursive;
+    font-size: 60px;
+}
+.card{
+    background-color: #292b2c;
+    width:18rem
+}
+.card:hover{
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+.card-text{
+    font-family: 'Asap', sans-serif;
+}
+.c-image{
+    width: 300px;
+    height: 400px;
+}

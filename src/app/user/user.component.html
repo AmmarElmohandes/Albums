@@ -1,28 +1,44 @@
 <div class="user">
   <button
     type="button"
-    class="btn btn-secondary"
+    class="btn btn-light btn-lg"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
   >
     Add User
   </button>
-  <table class="table table-striped">
+  <div class="row">
+    <div  class="col-lg-3" *ngFor="let user of users" >
+      <div class="card w-100 popout grow" >
+        <div class="card-body " (click)="showUser(user.id)">
+          <h5 class="card-title">{{user.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
+          <h6>{{user.phone}}</h6>
+          <p class="card-text"> {{ user.address.street }},{{ user.address.suite }},{{
+            user.address.city
+          }}</p>
+          <!-- <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <table class="table table-striped">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
+        <th >Email</th>
+        <th >Phone</th>
+        <th >Address</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
+        <td appTest>{{ user.name }}</td>
+        <td appTest>{{ user.email }}</td>
+        <td appTest>{{ user.phone }}</td>
 
-        <td>
+        <td appTest>
           {{ user.address.street }},{{ user.address.suite }},{{
             user.address.city
           }}
@@ -32,7 +48,7 @@
         </button>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 
   <div
     class="modal fade"
@@ -162,7 +178,7 @@
               >
                 Close
               </button>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-success">
                 Save changes
               </button>
             </div>

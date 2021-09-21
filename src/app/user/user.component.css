@@ -1,0 +1,26 @@
+.card{
+    background-color: #292b2c;
+    color:white
+}
+.popout {
+    animation: popout 1s ease;
+    -webkit-animation: popout 1s ease;
+}
+@keyframes popout {
+    from{transform:scale(0)}
+    80%{transform:scale(1.2)}
+    to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(0)}
+    80%{-webkit-transform:scale(1.2)}
+    to{-webkit-transform:scale(1)}
+}
+.card:hover{
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+button{
+    margin-bottom: 50px;
+    font-weight: bold;
+}
